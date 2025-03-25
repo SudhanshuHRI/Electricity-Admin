@@ -94,7 +94,7 @@ const Employeelist = () => {
   return (
     <AdminLayout>
       <Head>
-        <title>Employee's List</title>
+        <title>Employee&apos;s List</title>
       </Head>
       <>
         {isSubmitingLoader ? (
