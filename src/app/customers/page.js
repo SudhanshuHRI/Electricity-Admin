@@ -50,7 +50,7 @@ const Listustomers = () => {
     <AdminLayout>
       <>
         <Head>
-          <title>Customer's List</title>
+          <title>Customer&apos;s List</title>
         </Head>
         {isSubmitingLoader ? (
           <div className="overlay">

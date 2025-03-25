@@ -19,7 +19,7 @@ import Col from 'react-bootstrap/Col';
 import AdminLayout from "../../layout/AdminLayout";
 
 
-const detailsservices = () => {
+const Detailsservices = () => {
   // const router = useRouter();
   const [isSubmitingLoader, setisSubmitingLoader] = useState(false);
   const [serviceName, setServiceName] = useState("");
@@ -717,4 +717,4 @@ const detailsservices = () => {
   );
 };
 
-export default detailsservices;
+export default Detailsservices;
