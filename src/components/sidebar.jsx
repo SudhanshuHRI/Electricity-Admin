@@ -44,7 +44,7 @@ const Sidebar = () => {
           <li className="slide is-expanded" >
             <Link
               className={`side-menu__item ${heightLight == "/admin" ? " active" : ''}`}
-              href="/admin"
+              href="/home"
               data-toggle="slide"
             >
               <FaLaptop />
@@ -54,7 +54,7 @@ const Sidebar = () => {
           <li className="slide" >
             <Link
               className={`side-menu__item ${heightLight == "/admin/Employeelist" ? " active" : ''}`}
-              href="/admin/Employeelist"
+              href="/employees"
               data-toggle="slide"
             >
               <FaUserLarge />
@@ -75,7 +75,7 @@ const Sidebar = () => {
             <Link
               className={`side-menu__item ${heightLight == "/admin/Listustomers" ? " active " : ''}`}
               data-toggle="slide"
-              href="/admin/Listustomers"
+              href="/customers"
             >
               <FaClipboardList />
               <span className="side-menu__label">List of Customers</span>
@@ -85,14 +85,14 @@ const Sidebar = () => {
             <Link
               className={`side-menu__item ${heightLight == "/admin/Servicerequest" ? " active" : ''}`}
               data-toggle="slide"
-              href="/admin/Servicerequest"
+              href="/requested"
             >
               <FaSuitcase />
               <span className="side-menu__label">Scheduled Services</span>
             </Link>
           </li>
           <li className="slide" >
-            <Link className={`side-menu__item ${heightLight == "/admin/detailsservices" ? " active" : ''}`} href="/admin/detailsservices">
+            <Link className={`side-menu__item ${heightLight == "/admin/detailsservices" ? " active" : ''}`} href="/detailedServices">
               <FaRectangleList />
               <span className="side-menu__label">Services</span>
             </Link>
@@ -101,14 +101,14 @@ const Sidebar = () => {
             <Link
               className={`side-menu__item ${heightLight == "/admin/subscription" ? " active" : ''}`}
               data-toggle="slide"
-              href="/admin/subscription"
+              href="subscription"
             >
               <FaBox />
               <span className="side-menu__label">Subscription</span>
             </Link>
           </li>
           <li className="slide" >
-            <Link className={`side-menu__item ${heightLight == "/admin/Role" ? " active" : ''}`} data-toggle="slide" href="/admin/Role">
+            <Link className={`side-menu__item ${heightLight == "/admin/Role" ? " active" : ''}`} data-toggle="slide" href="/role">
               <FaBookBookmark />
               <span className="side-menu__label">News Letter</span>
             </Link>
@@ -117,7 +117,7 @@ const Sidebar = () => {
             <Link
               className={`side-menu__item ${heightLight == "/admin/Locations" ? " active" : ''}`}
               data-toggle="slide"
-              href="/admin/Locations"
+              href="/location"
             >
               <FaTicket />
               <span className="side-menu__label">Locations</span>
@@ -127,7 +127,7 @@ const Sidebar = () => {
             <Link
               className={`side-menu__item ${heightLight == "/admin/ticket" ? " active" : ''}`}
               data-toggle="slide"
-              href="/admin/ticket"
+              href="/ticket"
             >
               <FaTicket />
               <span className="side-menu__label">Ticket</span>

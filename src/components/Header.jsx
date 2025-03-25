@@ -61,23 +61,23 @@ const Header = ({setData}) => {
 
   const getUser = async () => {
     setisSubmitingLoader(true)
-    try {
-      const userId = localStorage.getItem("UserId[A]")
-      setUserID(userId)
-      const resp = await getData(`/GetAllUser?id=${userId}`)
+    // try {
+    //   const userId = localStorage.getItem("UserId[A]")
+    //   setUserID(userId)
+    //   const resp = await getData(`/GetAllUser?id=${userId}`)
 
-      setusername(resp?.data[0]?.name)
-      setUserPhoto(resp?.data[0]?.user_profile_photo)
-      setemail(resp?.data[0]?.email)
-      setUserPhone(resp?.data[0]?.user_phno)
-      setUserAddress(resp?.data[0]?.user_locality)
-      setUserZip(resp?.data[0].user_zipcode)
-      setUserCity(resp?.data[0]?.user_city)
-      setUserState(resp?.data[0]?.user_state)
-      setUserCountry(resp?.data[0]?.user_country)
-    } catch (error) {
-      console.log("try-catch error", error)
-    }
+    //   setusername(resp?.data[0]?.name)
+    //   setUserPhoto(resp?.data[0]?.user_profile_photo)
+    //   setemail(resp?.data[0]?.email)
+    //   setUserPhone(resp?.data[0]?.user_phno)
+    //   setUserAddress(resp?.data[0]?.user_locality)
+    //   setUserZip(resp?.data[0].user_zipcode)
+    //   setUserCity(resp?.data[0]?.user_city)
+    //   setUserState(resp?.data[0]?.user_state)
+    //   setUserCountry(resp?.data[0]?.user_country)
+    // } catch (error) {
+    //   console.log("try-catch error", error)
+    // }
     setisSubmitingLoader(false)
 
   }

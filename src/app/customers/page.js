@@ -1,51 +1,47 @@
-"use client"
-import Link from 'next/link';
-import Head from 'next/head';
+"use client";
+import Link from "next/link";
+import Head from "next/head";
 import { FaStar } from "react-icons/fa6";
 import { FaTrashAlt } from "react-icons/fa";
 
 //import { deleteData, getData } from '@/helpers/services';
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import AdminLayout from "../../layout/AdminLayout";
 
 //import { Toaster, toast } from "sonner";
 //import { verifyIsLoggedIn } from '@/helpers/helper';
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 const Listustomers = () => {
-
   //const route = useRouter();
-  const [totalCustomers, setTotalCustomers] = useState('');
+  const [totalCustomers, setTotalCustomers] = useState("");
   const [isSubmitingLoader, setisSubmitingLoader] = useState(false);
   const [refresh, setRefresh] = useState();
 
-
-
   const getCustomer = async () => {
-    setisSubmitingLoader(true)
-    const resp = await getData("/GetAllUser")
+    setisSubmitingLoader(true);
+    const resp = await getData("/GetAllUser");
 
+    const filterCustomer = resp?.data?.filter((e) => e.user_type == "Customer");
 
-    const filterCustomer = resp?.data?.filter((e) => e.user_type == "Customer")
-
-    setTotalCustomers(filterCustomer)
-    setisSubmitingLoader(false)
-  }
+    setTotalCustomers(filterCustomer);
+    setisSubmitingLoader(false);
+  };
 
   const deleteCustomer = async (id) => {
-
-    setisSubmitingLoader(true)
+    setisSubmitingLoader(true);
     try {
-      const resp = await deleteData("/DeleteUser", { "delId": id })
-      console.log("delete resp", resp)
-      resp?.message == "User Deleted Successfully" ? toast.success(resp?.message) : toast.error(resp?.message)
-      setRefresh(Math.random)
-
+      const resp = await deleteData("/DeleteUser", { delId: id });
+      console.log("delete resp", resp);
+      resp?.message == "User Deleted Successfully"
+        ? toast.success(resp?.message)
+        : toast.error(resp?.message);
+      setRefresh(Math.random);
     } catch (error) {
-      console.log("try-catch error", error)
+      console.log("try-catch error", error);
     }
-    setisSubmitingLoader(false)
-  }
+    setisSubmitingLoader(false);
+  };
   return (
     <AdminLayout>
       <>
@@ -59,7 +55,7 @@ const Listustomers = () => {
             </div>
           </div>
         ) : null}
-   
+
         <div className="app-content">
           <div className="side-app leftmenu-icon">
             <div className="page-header">
@@ -78,8 +74,6 @@ const Listustomers = () => {
                 <div className="ml-3 ml-auto d-flex">&nbsp;</div>
               </div>
             </div>
-
-
 
             <div className="row">
               <div className="col-xl-12 col-lg-12 col-md-12">
@@ -103,35 +97,44 @@ const Listustomers = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {totalCustomers ? (
-                            totalCustomers.map((item, index) => (
-                              <tr key={index}>
-                                <td>{index + 1}</td>
-                                <th scope="row">{item.id}</th>
-                                <td>{item.name}</td>
-                                <td>{item.user_house_num ? item.user_house_num : ''} {item.user_locality ? item.user_locality : ''} {item.user_city ? item.user_city : ''} {item.user_state ? item.user_state : ''}</td>
-                                <td>{item.user_zipcode ? item.user_zipcode : <span></span>}</td>
-                                <td>{item.email}</td>
-                                <td>{item.user_phno ? item.user_phno : <span></span>}</td>
-                                <td>{item.user_type}</td>
-                                <td>
-                                  {item.user_status === "1" ? (
-                                    <>
-                                      <span className="status-icon bg-success" />
-                                      Active
-                                    </>
-                                  ) : (
-                                    <>
-                                      {/* {" "} */}
-                                      <span className="status-icon bg-danger" />
-                                      Inactive
-                                    </>
-                                  )}
-                                </td>
-                                <td className="text-center"><FaTrashAlt onClick={() => deleteCustomer(item.id)} style={{ cursor: "pointer" }} /></td>
-                              </tr>
-                            ))
-                          ) : ''}
+                          {totalCustomers && totalCustomers.length > 0
+                            ? totalCustomers.map((item, index) => (
+                                <tr key={index}>
+                                  <td>{index + 1}</td>
+                                  <th scope="row">{item.id}</th>
+                                  <td>{item.name}</td>
+                                  <td>
+                                    {item.user_house_num || ""}{" "}
+                                    {item.user_locality || ""}{" "}
+                                    {item.user_city || ""}{" "}
+                                    {item.user_state || ""}
+                                  </td>
+                                  <td>{item.user_zipcode || null}</td>
+                                  <td>{item.email}</td>
+                                  <td>{item.user_phno || null}</td>
+                                  <td>{item.user_type}</td>
+                                  <td>
+                                    {item.user_status === "1" ? (
+                                      <>
+                                        <span className="status-icon bg-success" />
+                                        Active
+                                      </>
+                                    ) : (
+                                      <>
+                                        <span className="status-icon bg-danger" />
+                                        Inactive
+                                      </>
+                                    )}
+                                  </td>
+                                  <td className="text-center">
+                                    <FaTrashAlt
+                                      onClick={() => deleteCustomer(item.id)}
+                                      style={{ cursor: "pointer" }}
+                                    />
+                                  </td>
+                                </tr>
+                              ))
+                            : null}
                         </tbody>
                       </table>
                     </div>
@@ -141,11 +144,9 @@ const Listustomers = () => {
             </div>
           </div>
         </div>
-
-
-
       </>
-    </AdminLayout>);
-}
+    </AdminLayout>
+  );
+};
 
 export default Listustomers;
