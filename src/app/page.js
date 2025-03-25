@@ -34,7 +34,7 @@ export default function Login() {
                   <div className="wrapper wrapper2">
                     <form id="login" className="card-body" tabIndex={500}>
                       <h2 className="mb-1 font-weight-semibold">
-                        Login [Admin]
+                        Login
                       </h2>
                       <p className="mb-6">Sign In to your account</p>
                       <div className="input-group mb-3">
