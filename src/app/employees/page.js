@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import Link from "next/link";
-import Head from 'next/head';
+import Head from "next/head";
 import { FaTrashAlt } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
@@ -13,14 +13,13 @@ import { AiFillStar } from "react-icons/ai";
 import AdminLayout from "../../layout/AdminLayout";
 
 const Employeelist = () => {
-
   const [employeeList, setemployeeList] = useState([]);
   const [isSubmitingLoader, setisSubmitingLoader] = useState(false);
-  const [NewEmployeeName, setNewEmployeeName] = useState('');
-  const [NewEmployeeEmail, setNewEmployeeEmail] = useState('');
+  const [NewEmployeeName, setNewEmployeeName] = useState("");
+  const [NewEmployeeEmail, setNewEmployeeEmail] = useState("");
   const [NewEmployeePhone, setNewEmployeePhone] = useState();
-  const [NewEmployeePassword, setNewEmployeePassword] = useState('');
-  const [refresh, setRefresh] = useState('')
+  const [NewEmployeePassword, setNewEmployeePassword] = useState("");
+  const [refresh, setRefresh] = useState("");
 
   //const router = useRouter();
   // useEffect(() => {
@@ -50,46 +49,47 @@ const Employeelist = () => {
   }
 
   const RegisterEmployee = async () => {
-    setisSubmitingLoader(true)
-    if(NewEmployeePhone.toString().length==10)
-    { 
+    setisSubmitingLoader(true);
+    if (NewEmployeePhone.toString().length == 10) {
       try {
-      const NewEmployee = {
-        "name": NewEmployeeName,
-        "email": NewEmployeeEmail,
-        "password": NewEmployeePassword,
-        "user_phno": NewEmployeePhone,
-        "user_type": "Employee"
-      }
+        const NewEmployee = {
+          name: NewEmployeeName,
+          email: NewEmployeeEmail,
+          password: NewEmployeePassword,
+          user_phno: NewEmployeePhone,
+          user_type: "Employee",
+        };
 
-      const resp = await postData("/register", NewEmployee)
-      // console.log("resp",resp)
-      resp?.message == "User Created Successfully" ? toast.success(resp?.message) : toast.error(resp?.message);
-      setRefresh(Math.random)
-    } catch (error) {
-      console.log("try-catch error", error)
+        const resp = await postData("/register", NewEmployee);
+        // console.log("resp",resp)
+        resp?.message == "User Created Successfully"
+          ? toast.success(resp?.message)
+          : toast.error(resp?.message);
+        setRefresh(Math.random);
+      } catch (error) {
+        console.log("try-catch error", error);
+      }
+    } else {
+      toast.error("Phone no must be of 10 digits !");
     }
-   
-  }
-  else{
-    toast.error("Phone no must be of 10 digits !")
-  }
-   
-    setisSubmitingLoader(false)
-  }
+
+    setisSubmitingLoader(false);
+  };
   const deleteEmployee = async (id) => {
-    setisSubmitingLoader(true)
+    setisSubmitingLoader(true);
     try {
-      const resp = await deleteData("/DeleteUser", { "delId": id })
+      const resp = await deleteData("/DeleteUser", { delId: id });
       // console.log("delete user",resp)
-      resp?.message == "User Deleted Successfully" ? toast.success(resp?.message) : toast.error(resp?.messsage)
-      setRefresh(Math.random)
+      resp?.message == "User Deleted Successfully"
+        ? toast.success(resp?.message)
+        : toast.error(resp?.messsage);
+      setRefresh(Math.random);
     } catch (error) {
-      console.log("try-catch error", error)
+      console.log("try-catch error", error);
     }
-    setisSubmitingLoader(false)
+    setisSubmitingLoader(false);
     // console.log("userid",id)
-  }
+  };
 
   return (
     <AdminLayout>
@@ -104,7 +104,7 @@ const Employeelist = () => {
             </div>
           </div>
         ) : null}
-      
+
         <div className="app-content">
           <div className="side-app leftmenu-icon">
             <div className="page-header">
@@ -124,12 +124,14 @@ const Employeelist = () => {
               </div>
             </div>
 
-            <div className="row" >
-              <div className="col-xl-12 col-lg-12 col-md-12" >
-                <div className="card" >
-                  <div className="card-body" >
-                    <h5><b>Add Employee:</b></h5>
-                    <div className="form-group m-0" >
+            <div className="row">
+              <div className="col-xl-12 col-lg-12 col-md-12">
+                <div className="card">
+                  <div className="card-body">
+                    <h5>
+                      <b>Add Employee:</b>
+                    </h5>
+                    <div className="form-group m-0">
                       <div className="row gutters-xs">
                         <div className="col-12 col-sm-6 col-lg-3 mt-1">
                           <input
@@ -148,7 +150,9 @@ const Employeelist = () => {
                             className="form-control header-search"
                             placeholder="Email ID"
                             value={NewEmployeeEmail}
-                            onChange={(e) => setNewEmployeeEmail(e.target.value)}
+                            onChange={(e) =>
+                              setNewEmployeeEmail(e.target.value)
+                            }
                           />
                         </div>
                         <div className="col-12 col-sm-4 mt-sm-1 col-lg-3 mt-1">
@@ -163,7 +167,9 @@ const Employeelist = () => {
                             placeholder="Phone"
                             pattern="[0-9]{10}"
                             value={NewEmployeePhone}
-                            onChange={(e) => setNewEmployeePhone(e.target.value)}
+                            onChange={(e) =>
+                              setNewEmployeePhone(e.target.value)
+                            }
                           />
                         </div>
                         <div className="col-12 col-sm-4 mt-sm-1 col-lg-2 mt-1">
@@ -177,12 +183,18 @@ const Employeelist = () => {
                             className="form-control header-search"
                             placeholder="Password"
                             value={NewEmployeePassword}
-                            onChange={(e) => setNewEmployeePassword(e.target.value)}
+                            onChange={(e) =>
+                              setNewEmployeePassword(e.target.value)
+                            }
                           />
                         </div>
                         <div className="col-1 col-sm-4 mt-sm-1 col-lg-1 mt-1">
                           <div className="text-end">
-                            <button type="submit" className="btn btn-primary" onClick={RegisterEmployee}>
+                            <button
+                              type="submit"
+                              className="btn btn-primary"
+                              onClick={RegisterEmployee}
+                            >
                               Create
                             </button>
                           </div>
@@ -262,7 +274,7 @@ const Employeelist = () => {
                       <table className="table card-table table-bordered table-vcenter text-nowrap table-primary">
                         <thead className="bg-primary text-white">
                           <tr>
-                          <th className="text-white">Sr.No.</th>
+                            <th className="text-white">Sr.No.</th>
                             <th className="text-white">Employee Name</th>
                             <th className="text-white">Email</th>
                             <th className="text-white">Status</th>
@@ -278,34 +290,34 @@ const Employeelist = () => {
                         <tbody>
                           {employeeList.length > 0
                             ? employeeList.map((item, index) => (
-                              <tr key={index}>
-                                <td>{index+1}</td>
-                                <td>
-                                  {/* <Link
+                                <tr key={index}>
+                                  <td>{index + 1}</td>
+                                  <td>
+                                    {/* <Link
                                     href="/employee-detail"
                                     className="text-inherit"
                                   >
                                     Untrammelled prevents{" "}
                                   </Link> */}
-                                  {item.name}
-                                </td>
-                                <td>{item.email}</td>
-                                <td>
-                                  {item.user_status == "1" ? (
-                                    <>
-                                      <span className="status-icon bg-success" />
-                                      active
-                                    </>
-                                  ) : (
-                                    <>
-                                      {" "}
-                                      <span className="status-icon bg-danger" />
-                                      inactive
-                                    </>
-                                  )}
-                                </td>
-                                <td>{item.user_phno}</td>
-                                {/* <td>
+                                    {item.name}
+                                  </td>
+                                  <td>{item.email}</td>
+                                  <td>
+                                    {item.user_status == "1" ? (
+                                      <>
+                                        <span className="status-icon bg-success" />
+                                        active
+                                      </>
+                                    ) : (
+                                      <>
+                                        {" "}
+                                        <span className="status-icon bg-danger" />
+                                        inactive
+                                      </>
+                                    )}
+                                  </td>
+                                  <td>{item.user_phno}</td>
+                                  {/* <td>
                                   {item.user_rating ? (
                                     <>
                                       {item.user_rating} <span> </span>
@@ -313,18 +325,23 @@ const Employeelist = () => {
                                     </>
                                   ) : null}
                                 </td> */}
-                                <td>{item.user_country}</td>
-                                <td>{item.user_city}</td>
-                                <td>{item.user_zipcode}</td>
-                                <td>
-                                  {getFormatedDate(
-                                    item.created_at,
-                                    "DD-MM-YYYY"
-                                  )}
-                                </td>
-                                <td className="text-center"><FaTrashAlt onClick={() => deleteEmployee(item.id)} style={{cursor:"pointer"}}/></td>
-                              </tr>
-                            ))
+                                  <td>{item.user_country}</td>
+                                  <td>{item.user_city}</td>
+                                  <td>{item.user_zipcode}</td>
+                                  <td>
+                                    {getFormatedDate(
+                                      item.created_at,
+                                      "DD-MM-YYYY"
+                                    )}
+                                  </td>
+                                  <td className="text-center">
+                                    <FaTrashAlt
+                                      onClick={() => deleteEmployee(item.id)}
+                                      style={{ cursor: "pointer" }}
+                                    />
+                                  </td>
+                                </tr>
+                              ))
                             : null}
                         </tbody>
                       </table>
