@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 // import Header from "@/components/AdminPanel/Header";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import Sidebar from "../../components/Sidebar";
+import Sidebar from "../../components/sidebar";
 import AdminLayout from "../../layout/AdminLayout";
 import Head from 'next/head';
 import { usePathname } from "next/navigation";
