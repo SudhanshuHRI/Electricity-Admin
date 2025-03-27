@@ -27,7 +27,7 @@ const Employeelist = () => {
   //   getEmployeeList();
   // }, [refresh]);
 
-  //function to get the list of all employeess
+  //function to get the list of all employees
   async function getEmployeeList() {
     try {
       setisSubmitingLoader(true);
