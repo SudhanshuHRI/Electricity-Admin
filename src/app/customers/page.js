@@ -97,44 +97,62 @@ const Listustomers = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {totalCustomers && totalCustomers.length > 0
-                            ? totalCustomers.map((item, index) => (
-                                <tr key={index}>
-                                  <td>{index + 1}</td>
-                                  <th scope="row">{item.id}</th>
-                                  <td>{item.name}</td>
-                                  <td>
-                                    {item.user_house_num || ""}{" "}
-                                    {item.user_locality || ""}{" "}
-                                    {item.user_city || ""}{" "}
-                                    {item.user_state || ""}
-                                  </td>
-                                  <td>{item.user_zipcode || null}</td>
-                                  <td>{item.email}</td>
-                                  <td>{item.user_phno || null}</td>
-                                  <td>{item.user_type}</td>
-                                  <td>
-                                    {item.user_status === "1" ? (
-                                      <>
-                                        <span className="status-icon bg-success" />
-                                        Active
-                                      </>
-                                    ) : (
-                                      <>
-                                        <span className="status-icon bg-danger" />
-                                        Inactive
-                                      </>
-                                    )}
-                                  </td>
-                                  <td className="text-center">
-                                    <FaTrashAlt
-                                      onClick={() => deleteCustomer(item.id)}
-                                      style={{ cursor: "pointer" }}
-                                    />
-                                  </td>
-                                </tr>
-                              ))
-                            : null}
+                          <tr>
+                            <td>sdf</td>
+                            <th scope="row">asdf</th>
+                            <td>asdf</td>
+                            <td>df</td>
+                            <td>sdfa</td>
+                            <td>asdf</td>
+                            <td>asdf</td>
+                            <td>asdf</td>
+                            <td>sdfa</td>
+                            <td className="text-center">
+                              <FaTrashAlt style={{ cursor: "pointer" }} />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>sdf</td>
+                            <th scope="row">asdf</th>
+                            <td>asdf</td>
+                            <td>df</td>
+                            <td>sdfa</td>
+                            <td>asdf</td>
+                            <td>asdf</td>
+                            <td>asdf</td>
+                            <td>sdfa</td>
+                            <td className="text-center">
+                              <FaTrashAlt style={{ cursor: "pointer" }} />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>sdf</td>
+                            <th scope="row">asdf</th>
+                            <td>asdf</td>
+                            <td>df</td>
+                            <td>sdfa</td>
+                            <td>asdf</td>
+                            <td>asdf</td>
+                            <td>asdf</td>
+                            <td>sdfa</td>
+                            <td className="text-center">
+                              <FaTrashAlt style={{ cursor: "pointer" }} />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>sdf</td>
+                            <th scope="row">asdf</th>
+                            <td>asdf</td>
+                            <td>df</td>
+                            <td>sdfa</td>
+                            <td>asdf</td>
+                            <td>asdf</td>
+                            <td>asdf</td>
+                            <td>sdfa</td>
+                            <td className="text-center">
+                              <FaTrashAlt style={{ cursor: "pointer" }} />
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
