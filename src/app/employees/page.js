@@ -279,7 +279,7 @@ const Employeelist = () => {
                             <th className="text-white">Email</th>
                             <th className="text-white">Status</th>
                             <th className="text-white">Phone</th>
-                            {/* <th className="text-white">Rating</th> */}
+                            <th className="text-white">Rating</th>
                             <th className="text-white">Country</th>
                             <th className="text-white">Address</th>
                             <th className="text-white">Zip</th>
@@ -288,61 +288,24 @@ const Employeelist = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {employeeList.length > 0
-                            ? employeeList.map((item, index) => (
-                                <tr key={index}>
-                                  <td>{index + 1}</td>
-                                  <td>
-                                    {/* <Link
-                                    href="/employee-detail"
-                                    className="text-inherit"
-                                  >
-                                    Untrammelled prevents{" "}
-                                  </Link> */}
-                                    {item.name}
-                                  </td>
-                                  <td>{item.email}</td>
-                                  <td>
-                                    {item.user_status == "1" ? (
-                                      <>
-                                        <span className="status-icon bg-success" />
-                                        active
-                                      </>
-                                    ) : (
-                                      <>
-                                        {" "}
-                                        <span className="status-icon bg-danger" />
-                                        inactive
-                                      </>
-                                    )}
-                                  </td>
-                                  <td>{item.user_phno}</td>
-                                  {/* <td>
-                                  {item.user_rating ? (
-                                    <>
-                                      {item.user_rating} <span> </span>
-                                      <AiFillStar className="star" />{" "}
-                                    </>
-                                  ) : null}
-                                </td> */}
-                                  <td>{item.user_country}</td>
-                                  <td>{item.user_city}</td>
-                                  <td>{item.user_zipcode}</td>
-                                  <td>
-                                    {getFormatedDate(
-                                      item.created_at,
-                                      "DD-MM-YYYY"
-                                    )}
-                                  </td>
-                                  <td className="text-center">
-                                    <FaTrashAlt
-                                      onClick={() => deleteEmployee(item.id)}
-                                      style={{ cursor: "pointer" }}
-                                    />
-                                  </td>
-                                </tr>
-                              ))
-                            : null}
+                          <tr>
+                            <td>{1}</td>
+                            <td>dsF</td>
+                            <td>dsFfsdf</td>
+                            <td>dsfgdg</td>
+                            <td>sdfsdf</td>
+                            <td>sdgsdgd</td>
+                            <td>dfgdfgd</td>
+                            <td>sdgdfsgdfg</td>
+                            <td>sdsdgdsgsd</td>
+                            <td>fthydthdxtydt</td>
+                            <td className="text-center">
+                              <FaTrashAlt
+                                onClick={() => deleteEmployee(item.id)}
+                                style={{ cursor: "pointer" }}
+                              />
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>

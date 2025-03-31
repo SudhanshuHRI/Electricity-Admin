@@ -8,9 +8,10 @@ import {
 } from "react-icons/fa6";
 
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
 
 export default function Login() {
+  const router = useRouter();
   return (
     <>
       <div className="page">
@@ -33,9 +34,7 @@ export default function Login() {
                   />
                   <div className="wrapper wrapper2">
                     <form id="login" className="card-body" tabIndex={500}>
-                      <h2 className="mb-1 font-weight-semibold">
-                        Login
-                      </h2>
+                      <h2 className="mb-1 font-weight-semibold">Login</h2>
                       <p className="mb-6">Sign In to your account</p>
                       <div className="input-group mb-3">
                         <span className="input-group-addon">
@@ -62,7 +61,7 @@ export default function Login() {
                         />
                       </div>
                       <div className="row mb-0">
-                        <div className="col-12">
+                        <div className="col-12" onClick={() => router.push("/home")}>
                           <button className="btn btn-primary btn-block">
                             Login
                           </button>

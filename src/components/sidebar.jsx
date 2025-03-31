@@ -18,11 +18,6 @@ const Sidebar = () => {
 
   const [heightLight, setHeightlight] = useState('/home')
 
-  const handleRoute = ()=>{
-    router.push('/hello')
-  }
-  
-
 
   return (
     <>

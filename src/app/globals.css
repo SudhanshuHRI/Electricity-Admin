@@ -41,3 +41,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #FF9571; 
 }
+.toggle_bug{
+  margin-left: 0 !important;
+}

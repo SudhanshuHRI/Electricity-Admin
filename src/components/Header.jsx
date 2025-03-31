@@ -19,6 +19,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
+
 //import { getData, postData } from "@/helpers/services";
 
 //import axios from "axios";
@@ -82,12 +83,13 @@ const Header = ({setData}) => {
 
   }
   function toggleSidebar() {
+    console.log(sidebarClass)
     if (sidebarClass == "sidenav-toggled") {
       setsidebarClass("");
       const body = document.querySelector("body");
       body.classList.remove("sidenav-toggled");
     } else {
-      setsidebarClass("sidenav-toggled");
+      setsidebarClass("sidenav-toggled ");
       const body = document.querySelector("body");
       body.classList.add("sidenav-toggled");
     }
@@ -242,7 +244,7 @@ const Header = ({setData}) => {
       <div className="app-header header top-header">
         <div className="container-fluid">
           <div className="d-flex">
-            <a className="header-brand" href="/">
+            <a className="header-brand" href="/home">
               <img
                 src="/logo.png"
                 className="header-brand-img desktop-logo"
