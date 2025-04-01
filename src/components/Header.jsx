@@ -30,6 +30,9 @@ const Header = ({setData}) => {
 
  
   const [sidebarClass, setsidebarClass] = useState("sidenav-toggled");
+  const [showMessage,setShowMessage] = useState('d-none')
+  const [showNotifications,setShowNotifications] = useState('d-none')
+  const [showprofile,setShowprofile] = useState('d-none')
   const [userID, setUserID] = useState();
   const [username, setusername] = useState("");
   const [email, setemail] = useState("");
@@ -251,16 +254,16 @@ const Header = ({setData}) => {
                 alt="logo"
               />
             </a>
-            <a
+            {/* <a
               aria-label="Hide Sidebar"
-              className={`app-sidebar__toggle sidenav-toggled`}
+              className={`app-sidebar__toggle `}
               data-toggle="sidebar"
               // href="javascript:void(0)"
               onClick={toggleSidebar}
 
             >
               <FaAlignJustify />
-            </a>
+            </a> */}
             {/* sidebar-toggle*/}
             <form className="form-inline">
               <div className="search-element">
@@ -309,20 +312,20 @@ const Header = ({setData}) => {
               >
                 <i className="fa fa-search" />
               </a>
-              <div className="dropdown   header-fullscreen">
+              {/* <div className="dropdown   header-fullscreen">
                 <a
                   className="nav-link icon full-screen-link"
                   id="fullscreen-button"
                 >
                   <FaArrowsToCircle />
                 </a>
-              </div>
-              <div className="dropdown header-notify">
+              </div> */}
+              <div className="dropdown header-notify" onClick={()=>setShowMessage(showMessage=="d-block" ? "d-none" : "d-block") }>
                 <a className="nav-link icon text-center" data-toggle="dropdown">
                   <FaEnvelope />
                   <span className="nav-unread bg-danger pulse" />
                 </a>
-                <div className="dropdown-menu dropdown-menu-right dropdown-menu-arrow w-300  pt-0">
+                <div className={`dropdown-menu dropdown-menu-right dropdown-menu-arrow w-300  pt-0 ${showMessage}`}>
                   <div className="dropdown-header mt-0 pt-0 border-bottom p-4">
                     <h5 className="dropdown-title mb-1 font-weight-semibold text-drak">
                       Messages
@@ -389,12 +392,12 @@ const Header = ({setData}) => {
                 </div>
               </div>
               {/* MESSAGE-BOX */}
-              <div className="dropdown d-md-flex message">
+              <div className="dropdown d-md-flex message" onClick={()=>setShowNotifications(showNotifications=="d-block" ? "d-none" : "d-block") }>
                 <a className="nav-link icon" data-toggle="dropdown">
                   <FaRegBell />
                   <span className=" bg-success pulse-success " />
                 </a>
-                <div className="dropdown-menu dropdown-menu-right dropdown-menu-arrow pt-0">
+                <div className={`dropdown-menu dropdown-menu-right dropdown-menu-arrow pt-0 ${showNotifications}`}>
                   <div className="dropdown-header border-bottom p-4 pt-0 mb-3 w-270">
                     <div className="d-flex">
                       <h5 className="dropdown-title float-left mb-1 font-weight-semibold text-drak">
@@ -452,7 +455,7 @@ const Header = ({setData}) => {
                   </div>
                 </div>
               </div>
-              <div className="dropdown ">
+              <div className="dropdown " onClick={()=>setShowprofile(showprofile=="d-block" ? "d-none" : "d-block") }>
                 <a
                   className="nav-link pr-0 leading-none"
                   href="#"
@@ -461,7 +464,7 @@ const Header = ({setData}) => {
                 >
                   <div className="profile-details mt-2">
                     <span className="mr-3 font-weight-semibold">
-                      {username}
+                      Sudhanshu Srivastava
                     </span>
                     <small className="text-muted mr-3">Admin</small>
                   </div>
@@ -473,10 +476,10 @@ const Header = ({setData}) => {
                     height={50}
                   />
                 </a>
-                <div className="dropdown-menu dropdown-menu-right dropdown-menu-arrow w-250" >
+                <div className={`dropdown-menu dropdown-menu-right dropdown-menu-arrow w-250 ${showprofile}`}>
                   <div className="user-profile border-bottom p-3">
                     <div className="user-image">
-                      <img className="user-images" style={{ mixHeight: "65" }} src={userPhoto == null ||userPhoto==undefined? "/dummy.jpg" : process.env.NEXT_PUBLIC_IMAGE_URL + `${userPhoto}`} alt="image" />
+                      <img className="user-images" style={{ mixHeight: "65" }} src={"/dummy.jpg"} alt="image" />
                     </div>
                     <div className="user-details">
                       <h4>{username}</h4>
